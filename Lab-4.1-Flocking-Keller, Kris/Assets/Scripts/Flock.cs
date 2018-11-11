@@ -79,6 +79,10 @@ public class Flock : MonoBehaviour {
 		{
 			vcenter = vcenter / groupSize + (goalPos - this.transform.position);
 			speed = gSpeed / groupSize;
+			if (speed > 3)
+			{
+				speed = 3;
+			}
 
 			Vector3 direction = (vcenter + vavoid) - transform.position;
 			if (direction != Vector3.zero)
@@ -87,4 +91,5 @@ public class Flock : MonoBehaviour {
 			}
 		}
 	}
+		
 }

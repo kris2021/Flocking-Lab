@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+//using System;
 
 public class Flock : MonoBehaviour {
 
 	public GameObject BirdObject = null;
-
+	public static int tankSize = 5;
 	public GameObject Leader = null;
 
-	public int Size = 10;
+	public static int Size = 10;
+	public static GameObject[] allFish = new GameObject[Size];
 
 	/// <summary>
 	/// The cohesion identifies the maximum distance between neighboring flock members to maintain.
@@ -25,6 +26,7 @@ public class Flock : MonoBehaviour {
 	/// The separation identifies the minimum distance between neighboring flock members.
 	/// </summary>
 	public int Separation = 3;
+	public static Vector3 goalPos = Vector3.zero;
 
 	// Use this for initialization
 	private void Start () 
@@ -36,7 +38,10 @@ public class Flock : MonoBehaviour {
 	// Update is called once per frame
 	private void Update () 
 	{
-		
+		if (Random.Range (0, 10000) < 50)
+		{
+			goalPos = new Vector3 (Random.Range (-tankSize, tankSize), Random.Range (-tankSize, tankSize), Random.Range (-tankSize, tankSize));
+		}
 	}
 
 	private void KillBirds()

@@ -55,9 +55,13 @@ public class Flock : MonoBehaviour {
 		{
 			Vector2 v = getHexPosition (N);
 			GameObject go = GameObject.Instantiate (BirdObject, this.transform);
+
 			go.transform.position = new Vector3 (v.x,v.y,0);
+			allFish [N] = (GameObject)Instantiate (go, v, Quaternion.identity);
 			if (N == Size)
 				Leader = go;
+
+
 		}
 	}
 
